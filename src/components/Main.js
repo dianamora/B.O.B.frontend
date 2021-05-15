@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import BreweryCard from './BreweryCard'
 
+import { BASE_URL } from '../App'
+
 
 // function Main() {
 
@@ -31,7 +33,7 @@ export default class Main extends Component {
     }
 
     componentDidMount() {
-        axios.get("https://blackownedbreweries.herokuapp.com/breweries")
+        axios.get(BASE_URL+"/breweries")
             .then(res => {
                 const breweries = res.data
                 this.setState({ breweries })

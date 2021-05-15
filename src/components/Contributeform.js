@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import BASE_URL from '../App'
+
 function Contribute (props) {
 const [inputs, setInputs] = useState({name: "", city: "", state: ""})
 
@@ -16,9 +18,24 @@ const updateInputs = (target) => {
         [target.name]: target.value}))   
   }
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs)
+    
+    let config = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            // Authorization: `Bearer ${sessionStorage.token}`
+        },
+        body: JSON.stringify(inputs)
+    }
+    fetch( BASE_URL+"/breweries" , config)
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+        })
 
   }
 
