@@ -21,12 +21,13 @@ const updateInputs = (target) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    debugger
+    console.log(inputs)
+
   }
 
  return (
 
-        <Form className="Searchbox p-3" onSubmit={handleSubmit()} >
+        <Form className="Searchbox p-3" onSubmit={ (e) => handleSubmit(e)} >
             <Row>
                 <Col xs={6} md={8}>
                     <Form.Group controlId="formGroupSearch"> 
