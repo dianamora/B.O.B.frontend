@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import BreweryCard from './BreweryCard'
 
 
 // function Main() {
@@ -37,16 +38,22 @@ export default class Main extends Component {
             })
     }
 
+    mapBreweriesToCards = () => {
+        return this.state.breweries.map((brewery, index) => {
+                return <BreweryCard brewery={brewery} key={index}></BreweryCard>
+            })    
+    }
+
     render() {
         return (
             <div>
-                {this.state.breweries.map(brewery => <li>Name:{brewery.name}</li>)}
+                {/* {this.state.breweries.map(brewery => <li>Name:{brewery.name}</li>)}
                 {this.state.breweries.map(brewery => <li>Location:{brewery.location}</li>)}
                 {this.state.breweries.map(brewery => <li>Hours:{brewery.hours}</li>)}
                 {this.state.breweries.map(brewery => <li>Contact:{brewery.contact}</li>)}
-                {this.state.breweries.map(brewery => <li>Website:{brewery.website}</li>)}
+                {this.state.breweries.map(brewery => <li>Website:{brewery.website}</li>)} */}
                 {/* {this.state.breweries.map(brewery => <li>Img_url:{brewery.img_url}</li>)} */}
-
+                {this.mapBreweriesToCards()}
             </div>
         )
     };
