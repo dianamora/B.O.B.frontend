@@ -42,7 +42,7 @@ function Contribute(props) {
 
     return (
 
-        <Form className="Searchbox p-3" onSubmit={(e) => handleSubmit(e)} >
+        <Form className="p-3" onSubmit={(e) => handleSubmit(e)} >
             <Row>
                 <Col xs={6} md={8}>
                     <Form.Group controlId="formGroupSearch">
