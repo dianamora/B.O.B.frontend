@@ -27,7 +27,7 @@ function Navbar() {
         <nav className='navbar'>
             <div className='navbar-container'>
                 <Link to="/" className='navbar-logo' onClick={closeMobileMenu}>
-                    B.O.B. <i class='fas fa-beer'></i>
+                    B.O.B. <i className='fas fa-beer'></i>
                 </Link>
                 <div className='menu-icon' onClick={handleClick}>
                     <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
