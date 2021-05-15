@@ -1,30 +1,4 @@
-// import React from 'react';
-
-// export default class Contributeform extends React.Component {
-//     render() {
-//         return (
-//             <form>
-//                 <label>Name:</label>
-//                 <input type="text" name="name" onChange={ } />
-//                 {/* location */}
-//                 <label>Name:</label>
-//                 <input type="text" name="name" onChange={ } />
-//                 {/* hours */}
-//                 <label>Name:</label>
-//                 <input type="text" name="name" onChange={ } />
-//                 {/* contact */}
-//                 <label>Name:</label>
-//                 <input type="text" name="name" onChange={ } />
-//                 {/* website */}
-//                 <label>Name:</label>
-//                 <input type="text" name="name" onChange={ } />
-//                 <input type="submi" value="Add Brewery" />
-//             </form>
-//         )
-//     }
-// }
-
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row'
@@ -32,9 +6,6 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
 
 function Contribute (props) {
 const [inputs, setInputs] = useState({name: "", city: "", state: ""})
