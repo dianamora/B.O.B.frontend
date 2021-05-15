@@ -3,6 +3,10 @@ import React, {useState, useEffect} from 'react';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 
@@ -96,6 +100,9 @@ const updateInputs = (target) => {
                                 <option value="WV">West Virginia</option>
                                 <option value="WY">Wyoming</option>
                             </Form.Control>
+                            <Button color="primary" type="submit" className="btn-primary">
+                                Submit
+                            </Button>
                     </Form.Group>
                 </Col>
             </Row>
