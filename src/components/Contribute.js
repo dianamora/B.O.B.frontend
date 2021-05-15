@@ -18,9 +18,15 @@ const updateInputs = (target) => {
         ...prevState,
         [target.name]: target.value}))   
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    debugger
+  }
+
  return (
 
-        <Form className="Searchbox p-3">
+        <Form className="Searchbox p-3" onSubmit={handleSubmit()} >
             <Row>
                 <Col xs={6} md={8}>
                     <Form.Group controlId="formGroupSearch"> 
