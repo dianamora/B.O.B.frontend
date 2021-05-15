@@ -1,6 +1,10 @@
 import React from 'react';
 
 export default class Contributeform extends React.Component {
+
+    handleFormChange = (e) => {
+
+    }
     render() {
         return (
             <form>
