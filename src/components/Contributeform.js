@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import BASE_URL from '../App'
 
-function Contribute (props) {
+function ContributeForm (props) {
 const [inputs, setInputs] = useState({name: "", city: "", state: ""})
 
 const updateInputs = (target) => {
@@ -131,4 +131,4 @@ const handleSubmit = (e) => {
  )
 }
 
-export default Contribute
+export default ContributeForm
