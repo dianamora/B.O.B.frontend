@@ -33,7 +33,7 @@ function Contribute(props) {
             body: JSON.stringify(inputs)
         }
 
-        fetch(BASE_URL + "/breweries", config)
+        fetch("http://localhost:3000/breweries", config)
             .then(res => res.json())
             .then(res => {
                 console.log(res)

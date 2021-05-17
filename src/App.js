@@ -7,7 +7,8 @@ import About from './components/About';
 import Contribute from './components/Contribute';
 import Contact from './components/Contact';
 
-export const BASE_URL = "https://blackownedbreweries.herokuapp.com";
+// export const BASE_URL = "https://blackownedbreweries.herokuapp.com";
+export const BASE_URL = "http://localhost:3000";
 
 function App() {
   return (
