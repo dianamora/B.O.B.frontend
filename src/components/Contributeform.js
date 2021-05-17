@@ -7,21 +7,20 @@ import Button from 'react-bootstrap/Button'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import BASE_URL from '../App'
+import {BASE_URL} from '../App'
 
-function Contribute(props) {
-    const [inputs, setInputs] = useState({ name: "", city: "", state: "" })
+function ContributeForm (props) {
+const [inputs, setInputs] = useState({name: "", city: "", state: ""})
 
-    const updateInputs = (target) => {
-        setInputs(prevState => ({
-            ...prevState,
-            [target.name]: target.value
-        }))
-    }
+const updateInputs = (target) => {
+    setInputs(prevState => ({
+        ...prevState,
+        [target.name]: target.value}))   
+  }
 
-    const handleSubmit = (e) => {
+const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(inputs)
+        props.setShow(true)
 
         let config = {
             method: 'POST',
@@ -37,6 +36,7 @@ function Contribute(props) {
             .then(res => res.json())
             .then(res => {
                 console.log(res)
+                props.setShowModal(true)
             })
     }
 
@@ -132,4 +132,4 @@ function Contribute(props) {
     )
 }
 
-export default Contribute
+export default ContributeForm
