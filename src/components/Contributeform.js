@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import BASE_URL from '../App'
+import {BASE_URL} from '../App'
 
 function ContributeForm (props) {
 const [inputs, setInputs] = useState({name: "", city: "", state: ""})
@@ -20,7 +20,6 @@ const updateInputs = (target) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputs)
     
     let config = {
         method: 'POST',
@@ -31,7 +30,8 @@ const handleSubmit = (e) => {
         },
         body: JSON.stringify(inputs)
     }
-    fetch( BASE_URL+"/breweries" , config)
+
+    fetch( BASE_URL + `/breweries` , config)
         .then(res => res.json())
         .then(res => {
             console.log(res)
