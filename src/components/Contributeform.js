@@ -20,6 +20,7 @@ const updateInputs = (target) => {
 
 const handleSubmit = (e) => {
         e.preventDefault();
+        props.setShow(true)
 
         let config = {
             method: 'POST',
@@ -35,6 +36,7 @@ const handleSubmit = (e) => {
             .then(res => res.json())
             .then(res => {
                 console.log(res)
+                props.setShowModal(true)
             })
     }
 
