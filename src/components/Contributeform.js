@@ -20,8 +20,8 @@ const updateInputs = (target) => {
 
 const handleSubmit = (e) => {
         e.preventDefault();
-        props.setShow(true)
 
+        props.setShow(true)
         let config = {
             method: 'POST',
             headers: {
@@ -35,8 +35,8 @@ const handleSubmit = (e) => {
         fetch(BASE_URL + "/breweries", config)
             .then(res => res.json())
             .then(res => {
-                console.log(res)
-                props.setShowModal(true)
+                props.setSearchResults(res)
+                setInputs({name: "", city: "", state: ""})
             })
     }
 
