@@ -32,7 +32,7 @@ const handleSubmit = (e) => {
             body: JSON.stringify(inputs)
         }
 
-        fetch(BASE_URL + "/breweries", config)
+        fetch("http://localhost:3000/breweries", config)
             .then(res => res.json())
             .then(res => {
                 props.setSearchResults(res)
