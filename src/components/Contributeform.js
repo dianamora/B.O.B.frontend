@@ -20,8 +20,8 @@ const updateInputs = (target) => {
 
 const handleSubmit = (e) => {
         e.preventDefault();
-
         props.setShow(true)
+
         let config = {
             method: 'POST',
             headers: {
