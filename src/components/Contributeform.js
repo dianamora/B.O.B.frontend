@@ -33,7 +33,8 @@ function ContributeForm(props) {
             body: JSON.stringify(inputs)
         }
 
-        fetch("http://localhost:3000/breweries", config)
+        // fetch("http://localhost:3000/breweries", config)
+        fetch("https://blackownedbreweries.herokuapp.com/breweries", config)
             .then(res => res.json())
             .then(res => {
                 console.log(res)
