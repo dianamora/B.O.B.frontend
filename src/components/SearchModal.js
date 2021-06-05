@@ -33,7 +33,11 @@ function SearchModal(props) {
 
     const ListItem = (brewery, index) => {
       return (
-        <ListGroup.Item as="li" eventKey={index}>{brewery.name}</ListGroup.Item>
+        <ListGroup.Item as="li" eventKey={index}>
+          <div>{brewery.name}</div>
+          <div>{brewery.location.address1}</div>
+          <div>{brewery.location.city}, {brewery.location.state} {brewery.location.zip_code}</div>
+        </ListGroup.Item>
       ) 
     }
 
