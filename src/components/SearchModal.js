@@ -6,8 +6,15 @@ import React, { useState } from 'react';
 
 
 function SearchModal(props) {
+    const [select, setSelect] = useState(props.searchResults[0])
+    const handleClose = () => {
+      
+      props.setShow(false);
+    }
 
-    const handleClose = () => props.setShow(false);
+    const handleSelect = (e) => {
+      setSelect(props.searchResults[e])
+    }
 
     const ListItem = (brewery, index) => {
       return (
@@ -28,7 +35,7 @@ function SearchModal(props) {
             <Modal.Title>Please Confirm The Brewery You Want To Add</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-                <ListGroup as="ul" defaultActiveKey="0">
+                <ListGroup as="ul" defaultActiveKey="0" onSelect={(e) => handleSelect(e)}>
                   {mapResultsToList()}
               </ListGroup>
           </Modal.Body>
