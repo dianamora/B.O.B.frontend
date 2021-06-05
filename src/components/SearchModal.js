@@ -3,12 +3,27 @@ import Modal from 'react-bootstrap/Modal'
 import ListGroup from 'react-bootstrap/ListGroup'
 import React, { useState } from 'react';
 
+import {BASE_URL} from '../App'
+
 
 
 function SearchModal(props) {
     const [select, setSelect] = useState(props.searchResults[0])
     const handleClose = () => {
-      
+    let config = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify(select)
+    }
+
+    fetch(BASE_URL+"/breweries", config)
+        .then(res => res.json())
+        .then(res => {
+          console.log(res)
+        })
       props.setShow(false);
     }
 
