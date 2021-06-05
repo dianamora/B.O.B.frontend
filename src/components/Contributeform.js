@@ -35,8 +35,7 @@ const handleSubmit = (e) => {
         fetch(BASE_URL+"/breweries", config)
             .then(res => res.json())
             .then(res => {
-                debugger
-                props.setSearchResults(res)
+                props.setSearchResults(res.businesses)
                 setInputs({name: "", city: "", state: ""})
             })
     }

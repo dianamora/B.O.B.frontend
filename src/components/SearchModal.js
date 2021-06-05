@@ -1,11 +1,25 @@
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import ListGroup from 'react-bootstrap/ListGroup'
+import React, { useState } from 'react';
+
 
 
 function SearchModal(props) {
 
     const handleClose = () => props.setShow(false);
+
+    const ListItem = (brewery, index) => {
+      return (
+        <ListGroup.Item as="li" eventKey={index}>{brewery.name}</ListGroup.Item>
+      ) 
+    }
+
+    const mapResultsToList = () => {
+      return props.searchResults.map((brewery, index) => {
+              return ListItem(brewery, index)
+          })    
+    }
 
     return (
   
@@ -14,15 +28,8 @@ function SearchModal(props) {
             <Modal.Title>Please Confirm The Brewery You Want To Add</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-                <ListGroup as="ul">
-                  <ListGroup.Item as="li" active>
-                    Cras justo odio
-                  </ListGroup.Item>
-                  <ListGroup.Item as="li">Dapibus ac facilisis in</ListGroup.Item>
-                  <ListGroup.Item as="li" disabled>
-                    Morbi leo risus
-                  </ListGroup.Item>
-                  <ListGroup.Item as="li">Porta ac consectetur ac</ListGroup.Item>
+                <ListGroup as="ul" defaultActiveKey="0">
+                  {mapResultsToList()}
               </ListGroup>
           </Modal.Body>
           <Modal.Footer>
