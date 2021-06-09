@@ -8,7 +8,6 @@ import {BASE_URL} from '../App'
 
 
 function SearchModal(props) {
-    const [select, setSelect] = useState(props.searchResults[0])
     const handleClose = () => {
     let config = {
         method: 'POST',
@@ -16,7 +15,7 @@ function SearchModal(props) {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
         },
-        body: JSON.stringify(select)
+        body: JSON.stringify(props.select)
     }
 
     fetch(BASE_URL+"/breweries", config)
@@ -28,7 +27,7 @@ function SearchModal(props) {
     }
 
     const handleSelect = (e) => {
-      setSelect(props.searchResults[e])
+      props.setSelect(props.searchResults[e])
     }
 
     const ListItem = (brewery, index) => {

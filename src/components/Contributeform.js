@@ -36,6 +36,7 @@ const handleSubmit = (e) => {
             .then(res => res.json())
             .then(res => {
                 props.setSearchResults(res.businesses)
+                props.setSelect(res.businesses[0])
                 setInputs({name: "", city: "", state: ""})
             })
     }
