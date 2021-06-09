@@ -1,21 +1,63 @@
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
+import ListGroup from 'react-bootstrap/ListGroup'
+import React, { useState } from 'react';
+
+import {BASE_URL} from '../App'
+
+
 
 function SearchModal(props) {
+    const [select, setSelect] = useState(props.searchResults[0])
+    const handleClose = () => {
+    let config = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify(select)
+    }
 
-    const handleClose = () => props.setShow(false);
+    fetch(BASE_URL+"/breweries", config)
+        .then(res => res.json())
+        .then(res => {
+          console.log(res)
+        })
+      props.setShow(false);
+    }
+
+    const handleSelect = (e) => {
+      setSelect(props.searchResults[e])
+    }
+
+    const ListItem = (brewery, index) => {
+      return (
+        <ListGroup.Item as="li" eventKey={index}>{brewery.name}</ListGroup.Item>
+      ) 
+    }
+
+    const mapResultsToList = () => {
+      return props.searchResults.map((brewery, index) => {
+              return ListItem(brewery, index)
+          })    
+    }
 
     return (
   
         <Modal show={props.show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Confirm?</Modal.Title>
+            <Modal.Title>Please Confirm The Brewery You Want To Add</Modal.Title>
           </Modal.Header>
-          <Modal.Body>A bunch of list of breweries</Modal.Body>
+          <Modal.Body>
+                <ListGroup as="ul" defaultActiveKey="0" onSelect={(e) => handleSelect(e)}>
+                  {mapResultsToList()}
+              </ListGroup>
+          </Modal.Body>
           <Modal.Footer>
-          <Modal.Title>PLease Confirm</Modal.Title>
+          <Modal.Title></Modal.Title>
             <Button variant="secondary" onClick={handleClose}>
-              Close
+              Confirm!
             </Button>
           </Modal.Footer>
         </Modal>

@@ -14,7 +14,6 @@ function App() {
   return (
     <Router>
       <Navbar />
-      {/* <Main /> */}
       <Switch>
         <Route path='/' exact component={Main} />
         <Route path='/about' exact component={About} />

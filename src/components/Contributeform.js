@@ -33,12 +33,14 @@ function ContributeForm(props) {
             body: JSON.stringify(inputs)
         }
 
-        // fetch("http://localhost:3000/breweries", config)
-        fetch("https://blackownedbreweries.herokuapp.com/breweries", config)
+
+        fetch(BASE_URL+"/breweries", config)
             .then(res => res.json())
             .then(res => {
-                console.log(res)
-                // props.setShowModal(true)
+                props.setSearchResults(res.businesses)
+                setInputs({name: "", city: "", state: ""})
+        
+
             })
     }
 

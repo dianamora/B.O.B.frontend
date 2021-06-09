@@ -5,7 +5,6 @@ import BreweryCard from './BreweryCard'
 import { BASE_URL } from '../App'
 
 
-
 export default class Main extends Component {
     state = {
         breweries: []
