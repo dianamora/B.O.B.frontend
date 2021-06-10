@@ -5,7 +5,7 @@ function BreweryCard({ brewery }) {
 
     return (
         <Card className="m-3">
-            {/* <Card.Img variant="top" alt="No Poster" src={props.poster==="N/A" ? NoImage : props.poster} />  */}
+            {/* <Card.Img variant="top" alt="No Poster" src={brewery ? NoImage : props.poster} />  */}
             <Card.Body>
                 <Card.Title>{brewery.name} - {brewery.city}, {brewery.state}</Card.Title>
             </Card.Body>
