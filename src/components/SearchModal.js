@@ -1,7 +1,9 @@
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import ListGroup from 'react-bootstrap/ListGroup'
-import React, { useState } from 'react';
+import React from 'react';
+import Image from 'react-bootstrap/Image'
+import {Row, Col} from 'react-bootstrap'
 
 import {BASE_URL} from '../App'
 
@@ -36,10 +38,15 @@ function SearchModal(props) {
 
     const ListItem = (brewery, index) => {
       return (
-        <ListGroup.Item as="li" eventKey={index} key={index}>
-          <div>{brewery.name}</div>
-          <div>{brewery.location.address1}</div>
-          <div>{brewery.location.city}, {brewery.location.state} {brewery.location.zip_code}</div>
+        <ListGroup.Item as="li" eventKey={index} key={brewery.id}>
+          <Row>
+          <Col xs={6} md={6}>
+            <div>{brewery.name}</div>
+            <div>{brewery.location.address1}</div>
+            <div>{brewery.location.city}, {brewery.location.state} {brewery.location.zip_code}</div>
+          </Col>
+          <Col xs={6} md={6}> <Image src={brewery.image_url} thumbnail /> </Col>
+          </Row>
         </ListGroup.Item>
       ) 
     }

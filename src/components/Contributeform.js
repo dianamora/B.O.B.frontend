@@ -40,8 +40,7 @@ function ContributeForm(props) {
                 props.setSearchResults(res.businesses)
                 props.setSelect(res.businesses[0])
                 setInputs({name: "", city: "", state: ""})
-        
-
+                console.log(res)
             })
     }
 
