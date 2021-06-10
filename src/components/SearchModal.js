@@ -8,7 +8,7 @@ import {BASE_URL} from '../App'
 
 
 function SearchModal(props) {
-    const handleClose = () => {
+    const handleConfirm = () => {
     let config = {
         method: 'POST',
         headers: {
@@ -30,9 +30,13 @@ function SearchModal(props) {
       props.setSelect(props.searchResults[e])
     }
 
+    const handleClose = () => {
+      props.setShow(false);
+    }
+
     const ListItem = (brewery, index) => {
       return (
-        <ListGroup.Item as="li" eventKey={index}>
+        <ListGroup.Item as="li" eventKey={index} key={index}>
           <div>{brewery.name}</div>
           <div>{brewery.location.address1}</div>
           <div>{brewery.location.city}, {brewery.location.state} {brewery.location.zip_code}</div>
@@ -59,7 +63,7 @@ function SearchModal(props) {
           </Modal.Body>
           <Modal.Footer>
           <Modal.Title></Modal.Title>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={handleConfirm}>
               Confirm!
             </Button>
           </Modal.Footer>
