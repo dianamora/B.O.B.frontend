@@ -1,13 +1,13 @@
 import Card from 'react-bootstrap/Card'
 
 
-function BreweryCard({brewery}) {
+function BreweryCard({ brewery }) {
 
     return (
         <Card className="m-3">
             {/* <Card.Img variant="top" alt="No Poster" src={brewery ? NoImage : props.poster} />  */}
             <Card.Body>
-                <Card.Title>{brewery.name} - {brewery.location}</Card.Title>
+                <Card.Title>{brewery.name} - {brewery.city}, {brewery.state}</Card.Title>
             </Card.Body>
             <Card.Footer>
                 Here is the footer
